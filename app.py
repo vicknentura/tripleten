@@ -4,7 +4,7 @@ import plotly.express as px
 
 vehicles_us = pd.read_csv('vehicles_us.csv')
 
-st.title("Nico's Used Car App", divider='blue')
+st.title("Nico's Used Car App")
 st.header('Vehicles in the U.S. from 1955 to 2019')
 st.divider()
 
