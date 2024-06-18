@@ -60,9 +60,9 @@ st.header("Statistical Analysis")
 st.subheader("Show me the stinkin' p-values then!")
 
 # Create a checkbox to toggle the histogram
-show_hypotest1 = st.checkbox("I'm interested in data on odometer readings")
-show_hypotest2 = st.checkbox("I'm interested in the distribution of model years")
-show_hypotest3= st.checkbox("I'm interested in the relationship between price and odometer reading")
+show_hypotest1 = st.checkbox("I'm interested in data on odometer readings", key="hypotest1")
+show_hypotest2 = st.checkbox("I'm interested in the distribution of model years", key="hypotest2")
+show_hypotest3= st.checkbox("I'm interested in the relationship between price and odometer reading", key="hypotest3")
 
 if show_hypotest1:
     print("Insight: This finding suggests that 95% of cars older than 2012 had between 18K and 248K miles and those newer than 2012 had between 0 and 166K miles. However, due to the high variance in the samples, the hypothesis test found that older vehicles did not have greater odometer readings compared to newer vehicles.")
