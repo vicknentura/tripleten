@@ -21,7 +21,7 @@ show_price_odometer = st.checkbox("I'm interested in the relationship between pr
 if show_odometer:
     # Create a histogram of odometer readings
     
-    print("It looks like nearly all cars sold are around or below 200K miles driven. See stats section below.")
+    st.write("It looks like nearly all cars sold are around or below 200K miles driven. See stats section below.")
     
     fig = px.histogram(vehicles_us, x="odometer", nbins=10)
     st.write("Histogram of Odometer Readings")
@@ -33,7 +33,7 @@ else:
 if show_model_year:
     # Create a histogram of model_year
     
-    print("Interesting, we can see that nearly all cars that are listed on this website are from recent years – specifically, the last two decades.")
+    st.write("Interesting, we can see that nearly all cars that are listed on this website are from recent years – specifically, the last two decades.")
     
     fig = px.histogram(vehicles_us, x="model_year", nbins=15)
     st.write("Histogram of Model Year")
@@ -45,7 +45,7 @@ else:
 if show_price_odometer:
     # Create a scatter plot of price vs odometer
 
-    print("This powerful insight shows us evidence for a strong correlation between price and miles driven that influences consumer behavior.")
+    st.write("This powerful insight shows us evidence for a strong correlation between price and miles driven that influences consumer behavior.")
     
     fig = px.scatter(vehicles_us, x="odometer", y="price")
     st.write("Scatter Plot of Price vs Odometer")
@@ -65,7 +65,7 @@ show_hypotest2 = st.checkbox("I'm interested in the distribution of model years"
 show_hypotest3= st.checkbox("I'm interested in the relationship between price and odometer reading", key="hypotest3")
 
 if show_hypotest1:
-    print("Insight: This finding suggests that 95% of cars older than 2012 had between 18K and 248K miles and those newer than 2012 had between 0 and 166K miles. However, due to the high variance in the samples, the hypothesis test found that older vehicles did not have greater odometer readings compared to newer vehicles.")
+    st.write("Insight: This finding suggests that 95% of cars older than 2012 had between 18K and 248K miles and those newer than 2012 had between 0 and 166K miles. However, due to the high variance in the samples, the hypothesis test found that older vehicles did not have greater odometer readings compared to newer vehicles.")
     st.write("""
         **Hypothesis Test Description:**
         
@@ -102,13 +102,13 @@ if show_hypotest1:
 
     # Interpret the results
     if p_value < 0.05:
-        print("The average odometer reading of old vehicles is not significantly greater than that of newer vehicles.")
+        st.write("The average odometer reading of old vehicles is not significantly greater than that of newer vehicles.")
     else:
-        print("The average odometer reading of old vehicles is significantly greater than that of newer vehicles.")
+        st.write("The average odometer reading of old vehicles is significantly greater than that of newer vehicles.")
 
 
 if show_hypotest2:
-    print("Insight: In this test, we find that average days listed are below 90 days, suggesting sellers are successful or unsuccessful and delist within 90 days of posting their cars. We also find that the mean number of days listed is 39.5 with 95% of cars being listed for 56 days or less.")
+    st.write("Insight: In this test, we find that average days listed are below 90 days, suggesting sellers are successful or unsuccessful and delist within 90 days of posting their cars. We also find that the mean number of days listed is 39.5 with 95% of cars being listed for 56 days or less.")
     st.write("""
         **Hypothesis Test Description:**
         
@@ -131,13 +131,13 @@ if show_hypotest2:
 
     # Interpret the results
     if p_value < 0.05:
-        print("The average days_listed is significantly greater than 90 days.")
+        st.write("The average days_listed is significantly greater than 90 days.")
     else:
-        print("The average days_listed is not significantly greater than 90 days.")
+        st.write("The average days_listed is not significantly greater than 90 days.")
 
 
 if show_hypotest3:
-    print("Insight: Here we find that 19.5% of cars listed are white and 15% of cars are black. Due to the stringent normalization of proportion tests, we find that the proprtion of white color cars is significantly greater than black color cars in the US from 1955 to 2019. A very powerful statistic.")
+    st.write("Insight: Here we find that 19.5% of cars listed are white and 15% of cars are black. Due to the stringent normalization of proportion tests, we find that the proprtion of white color cars is significantly greater than black color cars in the US from 1955 to 2019. A very powerful statistic.")
     st.write("""
         **Hypothesis Test Description:**
 
@@ -163,8 +163,8 @@ if show_hypotest3:
 
     # Interpret the results
     if p_value < 0.05:
-        print("The proportion of white paint color is significantly greater than the proportion of black paint color.")
+        st.write("The proportion of white paint color is significantly greater than the proportion of black paint color.")
     else:
-        print("The proportion of white paint color is not significantly greater than the proportion of black paint color.")
+        st.write("The proportion of white paint color is not significantly greater than the proportion of black paint color.")
         
             
