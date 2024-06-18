@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
+import stats as sts
 from scipy.stats import norm
 
 vehicles_us = pd.read_csv('vehicles_us.csv')
@@ -86,11 +87,17 @@ if show_hypotest1:
     # Calculate the mean odometer readings for old and new vehicles
     old_odometer_mean = old_vehicles['odometer'].mean()
     new_odometer_mean = new_vehicles['odometer'].mean()
-
+    
+    st.write("The mean of the odometer reading for cars older than 2012 is: ", round(old_odometer_mean,2))
+    st.write("The mean of the odometer reading for cars newer than 2012 is: ", round(new_odometer_mean,2))
+    
     # Calculate the standard deviations of odometer readings for old and new vehicles
     old_odometer_std = old_vehicles['odometer'].std()
     new_odometer_std = new_vehicles['odometer'].std()
 
+    st.write("The standard deviation of the odometer reading for cars older than 2012 is: ", round(old_odometer_std,2))
+    st.write("The standard deviation of the odometer reading for cars newer than 2012 is: ", round(new_odometer_std,2))
+    
     # Calculate the pooled standard deviation
     pooled_std = np.sqrt(((old_odometer_std**2) / len(old_vehicles)) + ((new_odometer_std**2) / len(new_vehicles)))
     
@@ -100,6 +107,9 @@ if show_hypotest1:
     # Calculate the p-value
     p_value = sts.norm.sf(z_score)
 
+    st.write("Z-score:", z_score)
+    st.write("p-value:", p_value)
+    
     # Interpret the results
     if p_value < 0.05:
         st.write("The average odometer reading of old vehicles is not significantly greater than that of newer vehicles.")
@@ -121,14 +131,22 @@ if show_hypotest2:
 
     # Calculate the mean and standard deviation of days_listed
     days_listed_mean = vehicles_us['days_listed'].mean()
+
+    st.write("The average number of days listed is: ", round(days_listed_mean,2))
+    
     days_listed_std = vehicles_us['days_listed'].std()
 
+    st.write("The standard deviation of days listed is: ", round(days_listed_std,2))
+    
     # Calculate the Z-score
     z_score = (days_listed_mean - 90) / (days_listed_std / np.sqrt(len(vehicles_us)))
     
     # Calculate the p-value
     p_value = norm.sf(z_score)
 
+    st.write("Z-score:", z_score)
+    st.write("p-value:", p_value)
+    
     # Interpret the results
     if p_value < 0.05:
         st.write("The average days_listed is significantly greater than 90 days.")
@@ -152,6 +170,9 @@ if show_hypotest3:
     white_proportion = vehicles_us['paint_color'].value_counts()['white'] / len(vehicles_us)
     black_proportion = vehicles_us['paint_color'].value_counts()['black'] / len(vehicles_us)
 
+    st.write("The proportion of vehicles posted that are white is: ", round(white_proportion*100,2), '%')
+    st.write("The proportion of vehicles posted that are black is: ", round(black_proportion*100,2), '%')
+    
     # Calculate the pooled proportion
     pooled_proportion = (white_proportion + black_proportion) / 2
 
@@ -161,6 +182,9 @@ if show_hypotest3:
     # Calculate the p-value
     p_value = norm.sf(z_score)
 
+    st.write("Z-score:", z_score)
+    st.write("p-value:", p_value)
+    
     # Interpret the results
     if p_value < 0.05:
         st.write("The proportion of white paint color is significantly greater than the proportion of black paint color.")
