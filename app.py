@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import numpy as np
+from scipy.stats import norm
 
 vehicles_us = pd.read_csv('vehicles_us.csv')
 
@@ -116,8 +118,6 @@ if show_hypotest2:
         
         **P-value:** 0.05
     """)
-
-    from scipy.stats import norm
 
     # Calculate the mean and standard deviation of days_listed
     days_listed_mean = vehicles_us['days_listed'].mean()
