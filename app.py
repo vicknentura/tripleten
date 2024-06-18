@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import numpy as np
-import stats as sts
-from scipy.stats import norm
+from scipy.stats import norm, ttest_ind
 
 vehicles_us = pd.read_csv('vehicles_us.csv')
 
@@ -105,7 +104,7 @@ if show_hypotest1:
     z_score = (old_odometer_mean - new_odometer_mean) / pooled_std
     
     # Calculate the p-value
-    p_value = sts.norm.sf(z_score)
+    p_value = norm.sf(z_score)
 
     st.write("Z-score:", z_score)
     st.write("p-value:", p_value)
