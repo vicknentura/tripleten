@@ -11,9 +11,9 @@ st.divider()
 st.header("Data Exploration")
 st.subheader("Well, let me poke around then!")
 # Create a checkbox to toggle the histogram
-show_odometer = st.checkbox("I'm interested in data on odometer readings")
-show_model_year = st.checkbox("I'm interested in the distribution of model years")
-show_price_odometer = st.checkbox("I'm interested in the relationship between price and odometer reading")
+show_odometer = st.checkbox("I'm interested in data on odometer readings.")
+show_model_year = st.checkbox("I'm interested in the distribution of model years.")
+show_price_odometer = st.checkbox("I'm interested in the relationship between price and odometer reading.")
 
 if show_odometer:
     # Create a histogram of odometer readings
@@ -51,7 +51,7 @@ else:
 st.divider()
 
 st.header("Statistical Analysis")
-st.subheader("Show me the stinkin' p-values then!")
+st.subheader("Mkay... now show me the stinkin' p-values.")
 # Create a checkbox to toggle the histogram
 show_odometer = st.checkbox("I'm interested in data on odometer readings")
 show_model_year = st.checkbox("I'm interested in the distribution of model years")
